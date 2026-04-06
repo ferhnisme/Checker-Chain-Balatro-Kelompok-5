@@ -3,6 +3,7 @@
 #include "PokerHandChecker.h"
 #include "FullHouseChecker.h"
 #include "FlushChecker.h"
+#include "HighCardChecker.h"
 #include "PairChecker.h"
 class ScoringRule{
 public:
@@ -12,6 +13,6 @@ private:
 FullHouseChecker fullHouseChecker;
 FlushChecker flushChecker;
 PairChecker pairChecker;
+HighCardChecker highCardChecker;
 int convertRankToScore(HandRank rank);
 }
-;
