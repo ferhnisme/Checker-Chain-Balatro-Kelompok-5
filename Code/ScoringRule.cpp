@@ -2,7 +2,11 @@
 #include "ScoringRule.h"
 ScoringRule::ScoringRule(){
 fullHouseChecker.setNext(&flushChecker);
-flushChecker.setNext(&pairChecker);
+flushChecker.setNext(&straightChecker);
+straightChecker.setNext(&threeOfAKindChecker);
+threeOfAKindChecker.setNext(&twoPairChecker);
+twoPairChecker.setNext(&pairChecker);
+pairChecker.setNext(&highCardChecker);
 }
 int ScoringRule::scoreHand(const Hand& hand){
 std::cout << "Calculating hand score...\n";
@@ -22,5 +26,12 @@ return 10;
 case HandRank::HIGH_CARD:
 default:
 return 5;
+case HandRank::TWO_PAIR:
+    return 15;
+case HandRank::THREE_OF_A_KIND:
+    return 18;
+case HandRank::STRAIGHT:
+    return 22;
+    
 }
 }

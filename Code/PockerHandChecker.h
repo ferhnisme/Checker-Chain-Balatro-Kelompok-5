@@ -16,8 +16,3 @@ void setNext(PokerHandChecker* next);
 protected:
 PokerHandChecker* nextChecker = nullptr;
 };
-
-#include "PokerHandChecker.h"
-void PokerHandChecker::setNext(PokerHandChecker* next){
-nextChecker = next;
-}
