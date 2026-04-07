@@ -2,7 +2,8 @@
 #include "ScoringRule.h"
 ScoringRule::ScoringRule(){
 fullHouseChecker.setNext(&flushChecker);
-flushChecker.setNext(&straightChecker);
+flushChecker.setNext(&fourOfAKindChecker);
+fourOfAKindChecker.setNext(&straightChecker);
 straightChecker.setNext(&threeOfAKindChecker);
 threeOfAKindChecker.setNext(&twoPairChecker);
 twoPairChecker.setNext(&pairChecker);
@@ -32,6 +33,7 @@ case HandRank::THREE_OF_A_KIND:
     return 18;
 case HandRank::STRAIGHT:
     return 22;
-    
+case HandRank::FOUR_OF_A_KIND:
+    return 30;    
 }
 }

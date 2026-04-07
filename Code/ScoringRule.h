@@ -5,6 +5,7 @@
 #include "FlushChecker.h"
 #include "HighCardChecker.h"
 #include "PairChecker.h"
+#include "FourOfAKindChecker.h"
 class ScoringRule{
 public:
 ScoringRule();
@@ -14,5 +15,6 @@ FullHouseChecker fullHouseChecker;
 FlushChecker flushChecker;
 PairChecker pairChecker;
 HighCardChecker highCardChecker;
+FourOfAKindChecker fourOfAKindChecker;
 int convertRankToScore(HandRank rank);
 }
