@@ -5,7 +5,8 @@ flushFiveChecker.setNext(&fiveOfAKindChecker);
 fiveOfAKindChecker.setNext(&royalFlushChecker);
 royalFlushChecker.setNext(&straightFlushChecker);
 straightFlushChecker.setNext(&fourOfAKindChecker);
-fourOfAKindChecker.setNext(&fullHouseChecker);
+fourOfAKindChecker.setNext(&flushHouseChecker); // ⬅️ masuk sini
+flushHouseChecker.setNext(&fullHouseChecker);
 fullHouseChecker.setNext(&flushChecker);
 flushChecker.setNext(&straightChecker);
 straightChecker.setNext(&threeOfAKindChecker);
@@ -24,6 +25,8 @@ int ScoringRule::convertRankToScore(HandRank rank){
 switch (rank){
 case HandRank::FULL_HOUSE:
 return 25;
+case HandRank::FLUSH_HOUSE:
+    return 35;
 case HandRank::FLUSH:
 return 20;
 case HandRank::PAIR:
