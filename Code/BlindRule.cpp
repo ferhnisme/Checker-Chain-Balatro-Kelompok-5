@@ -1,6 +1,7 @@
+#include "BlindRule.h"
 #include <iostream>
-#include "HandGenerator.h"
-void HandGenerator::generateHand()
-{
-std::cout << "Generating cards for player...\n";
+
+bool BlindRule::checkBlind(int score) {
+    std::cout << "Checking blind with score: " << score << "\n";
+    return score >= 100;
 }

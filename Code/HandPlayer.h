@@ -1,6 +1,8 @@
-#include <iostream>
-#include "HandGenerator.h"
-void HandGenerator::generateHand()
-{
-std::cout << "Generating cards for player...\n";
-}
+#pragma once
+#include "Hand.h"
+
+class HandPlayer {
+public:
+    void playHand();
+    void discardCards();
+};

@@ -1,6 +1,10 @@
+#include "HandPlayer.h"
 #include <iostream>
-#include "HandGenerator.h"
-void HandGenerator::generateHand()
-{
-std::cout << "Generating cards for player...\n";
+
+void HandPlayer::playHand() {
+    std::cout << "Playing hand...\n";
+}
+
+void HandPlayer::discardCards() {
+    std::cout << "Discarding cards...\n";
 }

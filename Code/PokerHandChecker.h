@@ -1,5 +1,5 @@
 #pragma once
-#include "Hand.h"
+#include "../Code/Hand.h"
 enum class HandRank {
 HIGH_CARD,
 PAIR,

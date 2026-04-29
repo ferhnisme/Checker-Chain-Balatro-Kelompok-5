@@ -1,5 +1,5 @@
 #include <iostream>
-#include "ScoringRule.h"
+#include "../Code/ScoringRule.h"
 ScoringRule::ScoringRule(){
 flushFiveChecker.setNext(&fiveOfAKindChecker);
 fiveOfAKindChecker.setNext(&royalFlushChecker);

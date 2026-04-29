@@ -1,6 +1,7 @@
+#include "RewardRule.h"
 #include <iostream>
-#include "HandGenerator.h"
-void HandGenerator::generateHand()
-{
-std::cout << "Generating cards for player...\n";
+
+int RewardRule::earnMoney(bool win, int score) {
+    std::cout << "Earning money - win: " << (win ? "yes" : "no") << ", score: " << score << "\n";
+    return win ? score * 2 : 0;
 }
