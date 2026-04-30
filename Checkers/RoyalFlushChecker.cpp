@@ -1,9 +1,17 @@
+<<<<<<< Updated upstream
+=======
 #include <iostream>
 #include "RoyalFlushChecker.h"
 
-// dummy helper
 bool isRoyalFlush(const Hand& hand){
-    return hand.value == 8; // bebas dulu
+    if (hand.cardValues.size() < 5) return false;
+    
+    if (!hand.isAllSameSuit() || !hand.isConsecutive()) return false;
+    
+    // Royal flush: 10, J, Q, K, A (10,11,12,13,14)
+    std::vector<int> sorted = hand.cardValues;
+    std::sort(sorted.begin(), sorted.end());
+    return sorted[0] == 10 && sorted[4] == 14;
 }
 
 HandRank RoyalFlushChecker::check(const Hand& hand){
@@ -15,3 +23,4 @@ HandRank RoyalFlushChecker::check(const Hand& hand){
         return nextChecker->check(hand);
     return HandRank::HIGH_CARD;
 }
+>>>>>>> Stashed changes

@@ -1,9 +1,16 @@
+<<<<<<< Updated upstream
+=======
 #include <iostream>
 #include "ThreeOfAKindChecker.h"
 
-// dummy helper
 bool isThreeOfAKind(const Hand& hand){
-    return hand.value == 4; // bebas dulu
+    if (hand.cardValues.size() < 5) return false;
+    
+    std::vector<int> counts = hand.getValueCounts();
+    for (int count : counts) {
+        if (count == 3) return true;
+    }
+    return false;
 }
 
 HandRank ThreeOfAKindChecker::check(const Hand& hand){
@@ -15,3 +22,4 @@ HandRank ThreeOfAKindChecker::check(const Hand& hand){
         return nextChecker->check(hand);
     return HandRank::HIGH_CARD;
 }
+>>>>>>> Stashed changes

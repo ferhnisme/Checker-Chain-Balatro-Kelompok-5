@@ -1,9 +1,22 @@
+<<<<<<< Updated upstream
+=======
 #include <iostream>
 #include "FlushHouseChecker.h"
 
-// dummy helper
 bool isFlushHouse(const Hand& hand){
-    return hand.value == 11; // bebas dulu
+    if (hand.cardValues.size() < 5) return false;
+    
+    // Flush House: Flush (sama suit) + Full House (3+2)
+    if (!hand.isAllSameSuit()) return false;
+    
+    std::vector<int> counts = hand.getValueCounts();
+    bool hasThree = false;
+    bool hasTwo = false;
+    for (int count : counts) {
+        if (count == 3) hasThree = true;
+        if (count == 2) hasTwo = true;
+    }
+    return hasThree && hasTwo;
 }
 
 HandRank FlushHouseChecker::check(const Hand& hand){
@@ -15,3 +28,4 @@ HandRank FlushHouseChecker::check(const Hand& hand){
         return nextChecker->check(hand);
     return HandRank::HIGH_CARD;
 }
+>>>>>>> Stashed changes

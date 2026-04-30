@@ -1,9 +1,11 @@
+<<<<<<< Updated upstream
+=======
 #include <iostream>
 #include "StraightFlushChecker.h"
 
-// dummy helper
 bool isStraightFlush(const Hand& hand){
-    return hand.value == 7; // bebas dulu
+    if (hand.cardValues.size() < 5) return false;
+    return hand.isAllSameSuit() && hand.isConsecutive();
 }
 
 HandRank StraightFlushChecker::check(const Hand& hand){
@@ -15,3 +17,4 @@ HandRank StraightFlushChecker::check(const Hand& hand){
         return nextChecker->check(hand);
     return HandRank::HIGH_CARD;
 }
+>>>>>>> Stashed changes

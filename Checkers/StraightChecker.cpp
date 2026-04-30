@@ -1,9 +1,11 @@
+<<<<<<< Updated upstream
+=======
 #include <iostream>
 #include "StraightChecker.h"
 
-// dummy helper
 bool isStraight(const Hand& hand){
-    return hand.value == 5; // bebas dulu
+    if (hand.cardValues.size() < 5) return false;
+    return hand.isConsecutive();
 }
 
 HandRank StraightChecker::check(const Hand& hand){
@@ -15,3 +17,4 @@ HandRank StraightChecker::check(const Hand& hand){
         return nextChecker->check(hand);
     return HandRank::HIGH_CARD;
 }
+>>>>>>> Stashed changes

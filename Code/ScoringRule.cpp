@@ -1,6 +1,7 @@
 #include <iostream>
 #include "../Code/ScoringRule.h"
 ScoringRule::ScoringRule(){
+<<<<<<< Updated upstream
 flushFiveChecker.setNext(&fiveOfAKindChecker);
 fiveOfAKindChecker.setNext(&royalFlushChecker);
 royalFlushChecker.setNext(&straightFlushChecker);
@@ -13,6 +14,21 @@ straightChecker.setNext(&threeOfAKindChecker);
 threeOfAKindChecker.setNext(&twoPairChecker);
 twoPairChecker.setNext(&pairChecker);
 pairChecker.setNext(&highCardChecker);
+=======
+    // Urutan dari tertinggi ke terendah
+    flushFiveChecker.setNext(&fiveOfAKindChecker);
+    fiveOfAKindChecker.setNext(&royalFlushChecker);
+    royalFlushChecker.setNext(&straightFlushChecker);
+    straightFlushChecker.setNext(&fourOfAKindChecker);
+    fourOfAKindChecker.setNext(&flushHouseChecker);
+    flushHouseChecker.setNext(&fullHouseChecker);
+    fullHouseChecker.setNext(&flushChecker);
+    flushChecker.setNext(&straightChecker);
+    straightChecker.setNext(&threeOfAKindChecker);
+    threeOfAKindChecker.setNext(&twoPairChecker);
+    twoPairChecker.setNext(&pairChecker);
+    pairChecker.setNext(&highCardChecker);
+>>>>>>> Stashed changes
 }
 int ScoringRule::scoreHand(const Hand& hand){
 std::cout << "Calculating hand score...\n";

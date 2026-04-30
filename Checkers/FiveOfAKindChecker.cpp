@@ -1,9 +1,16 @@
+<<<<<<< Updated upstream
+=======
 #include <iostream>
 #include "FiveOfAKindChecker.h"
 
-// dummy helper
 bool isFiveOfAKind(const Hand& hand){
-    return hand.value == 9; // bebas dulu
+    if (hand.cardValues.size() < 5) return false;
+    
+    std::vector<int> counts = hand.getValueCounts();
+    for (int count : counts) {
+        if (count == 5) return true;
+    }
+    return false;
 }
 
 HandRank FiveOfAKindChecker::check(const Hand& hand){
@@ -15,3 +22,4 @@ HandRank FiveOfAKindChecker::check(const Hand& hand){
         return nextChecker->check(hand);
     return HandRank::HIGH_CARD;
 }
+>>>>>>> Stashed changes

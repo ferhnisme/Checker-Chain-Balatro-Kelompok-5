@@ -1,9 +1,17 @@
+<<<<<<< Updated upstream
+=======
 #include <iostream>
 #include "TwoPairChecker.h"
 
-// dummy helper
 bool isTwoPair(const Hand& hand){
-    return hand.value == 3; // bebas dulu
+    if (hand.cardValues.size() < 5) return false;
+    
+    std::vector<int> counts = hand.getValueCounts();
+    int pairCount = 0;
+    for (int count : counts) {
+        if (count == 2) pairCount++;
+    }
+    return pairCount == 2;
 }
 
 HandRank TwoPairChecker::check(const Hand& hand){
@@ -15,3 +23,4 @@ HandRank TwoPairChecker::check(const Hand& hand){
         return nextChecker->check(hand);
     return HandRank::HIGH_CARD;
 }
+>>>>>>> Stashed changes

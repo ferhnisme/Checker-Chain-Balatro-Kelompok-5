@@ -1,9 +1,19 @@
+<<<<<<< Updated upstream
+=======
 #include <iostream>
 #include "FlushFiveChecker.h"
 
-// dummy helper
 bool isFlushFive(const Hand& hand){
-    return hand.value == 10; // bebas dulu
+    if (hand.cardValues.size() < 5) return false;
+    
+    // Flush Five: semua kartu sama suit DAN semua nilai berbeda
+    if (!hand.isAllSameSuit()) return false;
+    
+    std::vector<int> counts = hand.getValueCounts();
+    for (int count : counts) {
+        if (count > 1) return false; // Tidak ada duplikat
+    }
+    return true;
 }
 
 HandRank FlushFiveChecker::check(const Hand& hand){
@@ -15,3 +25,4 @@ HandRank FlushFiveChecker::check(const Hand& hand){
         return nextChecker->check(hand);
     return HandRank::HIGH_CARD;
 }
+>>>>>>> Stashed changes
