@@ -1,20 +1,20 @@
 #include <iostream>
-#include "FourOfAKindChecker.h"
+#include "PairChecker.h"
 
-bool isFourOfAKind(const Hand& hand){
+bool isPair(const Hand& hand){
     if (hand.cardValues.size() < 5) return false;
     
     std::vector<int> counts = hand.getValueCounts();
     for (int count : counts) {
-        if (count == 4) return true;
+        if (count == 2) return true;
     }
     return false;
 }
 
-HandRank FourOfAKindChecker::check(const Hand& hand){
-    if (isFourOfAKind(hand)){
-        std::cout << "Detected FOUR OF A KIND\n";
-        return HandRank::FOUR_OF_A_KIND;
+HandRank PairChecker::check(const Hand& hand){
+    if (isPair(hand)){
+        std::cout << "Detected PAIR\n";
+        return HandRank::PAIR;
     }
     if (nextChecker)
         return nextChecker->check(hand);
