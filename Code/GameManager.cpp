@@ -1,5 +1,5 @@
 #include <iostream>
-#include "GameManager.h"
+#include "../Code/GameManager.h"
 void GameManager::runSession(){
 std::cout << "=== Run Started ===\n";
 Hand hand = handGenerator.generateHand();
@@ -10,3 +10,4 @@ int reward = rewardRule.earnMoney(win, score);
 std::cout << "Money gained: " << reward << "\n";
 
 std::cout << "=== Run Ended ===\n";
+}

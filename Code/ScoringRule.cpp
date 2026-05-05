@@ -1,17 +1,34 @@
 #include <iostream>
-#include "ScoringRule.h"
+#include "../Code/ScoringRule.h"
 ScoringRule::ScoringRule(){
+<<<<<<< Updated upstream
 flushFiveChecker.setNext(&fiveOfAKindChecker);
 fiveOfAKindChecker.setNext(&royalFlushChecker);
 royalFlushChecker.setNext(&straightFlushChecker);
 straightFlushChecker.setNext(&fourOfAKindChecker);
-fourOfAKindChecker.setNext(&fullHouseChecker);
+fourOfAKindChecker.setNext(&flushHouseChecker); // ⬅️ masuk sini
+flushHouseChecker.setNext(&fullHouseChecker);
 fullHouseChecker.setNext(&flushChecker);
 flushChecker.setNext(&straightChecker);
 straightChecker.setNext(&threeOfAKindChecker);
 threeOfAKindChecker.setNext(&twoPairChecker);
 twoPairChecker.setNext(&pairChecker);
 pairChecker.setNext(&highCardChecker);
+=======
+    // Urutan dari tertinggi ke terendah
+    flushFiveChecker.setNext(&fiveOfAKindChecker);
+    fiveOfAKindChecker.setNext(&royalFlushChecker);
+    royalFlushChecker.setNext(&straightFlushChecker);
+    straightFlushChecker.setNext(&fourOfAKindChecker);
+    fourOfAKindChecker.setNext(&flushHouseChecker);
+    flushHouseChecker.setNext(&fullHouseChecker);
+    fullHouseChecker.setNext(&flushChecker);
+    flushChecker.setNext(&straightChecker);
+    straightChecker.setNext(&threeOfAKindChecker);
+    threeOfAKindChecker.setNext(&twoPairChecker);
+    twoPairChecker.setNext(&pairChecker);
+    pairChecker.setNext(&highCardChecker);
+>>>>>>> Stashed changes
 }
 int ScoringRule::scoreHand(const Hand& hand){
 std::cout << "Calculating hand score...\n";
@@ -24,6 +41,8 @@ int ScoringRule::convertRankToScore(HandRank rank){
 switch (rank){
 case HandRank::FULL_HOUSE:
 return 25;
+case HandRank::FLUSH_HOUSE:
+    return 35;
 case HandRank::FLUSH:
 return 20;
 case HandRank::PAIR:

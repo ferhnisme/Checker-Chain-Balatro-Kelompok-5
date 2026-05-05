@@ -1,6 +1,6 @@
-#include <iostream>
-#include "HandGenerator.h"
-void HandGenerator::generateHand()
-{
-std::cout << "Generating cards for player...\n";
-}
+#pragma once
+
+class RewardRule {
+public:
+    int earnMoney(bool win, int score);
+};
