@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 #include <iostream>
 #include "FlushChecker.h"
 
@@ -17,4 +15,3 @@ HandRank FlushChecker::check(const Hand& hand){
         return nextChecker->check(hand);
     return HandRank::HIGH_CARD;
 }
->>>>>>> Stashed changes

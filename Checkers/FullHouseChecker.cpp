@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 #include <iostream>
 #include "FullHouseChecker.h"
 
@@ -25,4 +23,3 @@ HandRank FullHouseChecker::check(const Hand& hand){
         return nextChecker->check(hand);
     return HandRank::HIGH_CARD;
 }
->>>>>>> Stashed changes

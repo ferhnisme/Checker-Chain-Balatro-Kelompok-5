@@ -1,16 +1,16 @@
-<<<<<<< Updated upstream
-=======
 #pragma once
 #include <vector>
 #include <algorithm>
+#include <iostream>
+#include <string>
 
 struct Hand{
     std::vector<int> cardValues; // Nilai kartu (2-14, dimana 14=As)
     std::vector<int> suits; // Jenis kartu (0=Spade, 1=Heart, 2=Diamond, 3=Club)
     
     Hand() {
-        cardValues.resize(5);
-        suits.resize(5);
+        // cardValues.resize(5);
+        // suits.resize(5);
     }
     
     // Helper untuk mendapatkan frekuensi nilai kartu
@@ -43,5 +43,33 @@ struct Hand{
         }
         return true;
     }
+    
+    // Method untuk menampilkan kartu dengan simbol
+    void display() const {
+        for (size_t i = 0; i < cardValues.size(); ++i) {
+            std::string valueStr;
+            int val = cardValues[i];
+            if (val >= 2 && val <= 10) {
+                valueStr = std::to_string(val);
+            } else if (val == 11) {
+                valueStr = "J";
+            } else if (val == 12) {
+                valueStr = "Q";
+            } else if (val == 13) {
+                valueStr = "K";
+            } else if (val == 14) {
+                valueStr = "A";
+            }
+            
+            char suitSymbol;
+            int suit = suits[i];
+            if (suit == 0) suitSymbol = 'S'; // Spade
+            else if (suit == 1) suitSymbol = 'H'; // Heart
+            else if (suit == 2) suitSymbol = 'D'; // Diamond
+            else if (suit == 3) suitSymbol = 'C'; // Club
+            
+            std::cout << valueStr << suitSymbol << " ";
+        }
+        std::cout << std::endl;
+    }
 };
->>>>>>> Stashed changes

@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 #include <iostream>
 #include "RoyalFlushChecker.h"
 
@@ -23,4 +21,3 @@ HandRank RoyalFlushChecker::check(const Hand& hand){
         return nextChecker->check(hand);
     return HandRank::HIGH_CARD;
 }
->>>>>>> Stashed changes
