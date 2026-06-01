@@ -2,5 +2,5 @@
 
 class RewardRule {
 public:
-    int earnMoney(bool win, int score);
+    int earnMoney(bool win, int score, bool skipBlind = false);
 };
