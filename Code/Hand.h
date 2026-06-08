@@ -45,6 +45,11 @@ struct Hand{
     
     // Method untuk menampilkan kartu dengan simbol
     void display() const {
+        if (cardValues.size() != suits.size()) {
+            std::cout << "[Error] cardValues and suits size mismatch" << std::endl;
+            return;
+        }
+
         for (size_t i = 0; i < cardValues.size(); ++i) {
             std::string valueStr;
             int val = cardValues[i];
@@ -58,18 +63,20 @@ struct Hand{
                 valueStr = "K";
             } else if (val == 14) {
                 valueStr = "A";
+            } else {
+                valueStr = "?";
             }
             
-            char suitSymbol;
+            char suitSymbol = '?';
             int suit = suits[i];
             if (suit == 0) suitSymbol = 'S'; // Spade
             else if (suit == 1) suitSymbol = 'H'; // Heart
             else if (suit == 2) suitSymbol = 'D'; // Diamond
             else if (suit == 3) suitSymbol = 'C'; // Club
-            else suitSymbol = '?';
             
             std::cout << valueStr << suitSymbol << " ";
         }
         std::cout << std::endl;
     }
 };
+

@@ -1,5 +1,6 @@
 #pragma once
 #include "Hand.h"
+#include "Joker.h"
 #include "PokerHandChecker.h"
 #include "../Checkers/FullHouseChecker.h"
 #include "../Checkers/FlushChecker.h"
@@ -17,21 +18,21 @@
 
 class ScoringRule{
 public:
-ScoringRule();
-int scoreHand(const Hand& hand);
+    ScoringRule();
+    int scoreHand(const Hand& hand, JokerType jokerType = JokerType::NONE);
 private:
-FullHouseChecker fullHouseChecker;
-FlushChecker flushChecker;
-PairChecker pairChecker;
-HighCardChecker highCardChecker;
-FourOfAKindChecker fourOfAKindChecker;
-StraightFlushChecker straightFlushChecker;
-RoyalFlushChecker royalFlushChecker;
-FiveOfAKindChecker fiveOfAKindChecker;
-FlushFiveChecker flushFiveChecker;
-FlushHouseChecker flushHouseChecker;
-StraightChecker straightChecker;
-ThreeOfAKindChecker threeOfAKindChecker;
-TwoPairChecker twoPairChecker;
-int convertRankToScore(HandRank rank);
+    FullHouseChecker fullHouseChecker;
+    FlushChecker flushChecker;
+    PairChecker pairChecker;
+    HighCardChecker highCardChecker;
+    FourOfAKindChecker fourOfAKindChecker;
+    StraightFlushChecker straightFlushChecker;
+    RoyalFlushChecker royalFlushChecker;
+    FiveOfAKindChecker fiveOfAKindChecker;
+    FlushFiveChecker flushFiveChecker;
+    FlushHouseChecker flushHouseChecker;
+    StraightChecker straightChecker;
+    ThreeOfAKindChecker threeOfAKindChecker;
+    TwoPairChecker twoPairChecker;
+    int convertRankToScore(HandRank rank);
 };

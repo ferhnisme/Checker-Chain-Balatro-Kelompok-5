@@ -17,25 +17,11 @@ ScoringRule::ScoringRule(){
     pairChecker.setNext(&highCardChecker);
 }
 
-int ScoringRule::scoreHand(const Hand& hand){
+int ScoringRule::scoreHand(const Hand& hand, JokerType jokerType){
     std::cout << "Calculating hand score...\n";
     HandRank rank = flushFiveChecker.check(hand);
     int score = convertRankToScore(rank);
-    if (rank == HandRank::PAIR){
-        std::cout << "pair joker aktif\n";
-        score *= 2;
-    }
-    bool hasKing = false;
-    for (int value : hand.cardValues){
-        if (value == 13){
-            hasKing = true;
-            break;
-        }
-    }
-    if (hasKing){
-        std::cout << "king bonus aktif\n";
-        score += 10;
-    }
+    score = applyJokerBonus(score, hand, rank, jokerType);
     std::cout << "Final score = " << score << "\n";
     return score;
 }

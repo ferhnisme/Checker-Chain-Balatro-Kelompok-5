@@ -2,7 +2,7 @@
 #include "TwoPairChecker.h"
 
 bool isTwoPair(const Hand& hand){
-    if (hand.cardValues.size() < 5) return false;
+    if (hand.cardValues.size() < 4) return false;
     
     std::vector<int> counts = hand.getValueCounts();
     int pairCount = 0;

@@ -3,6 +3,6 @@
 
 class HandPlayer {
 public:
-    void playHand();
+    void playHand(Hand& hand);
     void discardCards();
 };

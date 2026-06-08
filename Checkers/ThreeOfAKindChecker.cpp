@@ -2,7 +2,7 @@
 #include "ThreeOfAKindChecker.h"
 
 bool isThreeOfAKind(const Hand& hand){
-    if (hand.cardValues.size() < 5) return false;
+    if (hand.cardValues.size() < 3) return false;
     
     std::vector<int> counts = hand.getValueCounts();
     for (int count : counts) {

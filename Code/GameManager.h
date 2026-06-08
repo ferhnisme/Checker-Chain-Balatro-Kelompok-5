@@ -4,13 +4,16 @@
 #include "ScoringRule.h"
 #include "BlindRule.h"
 #include "RewardRule.h"
+#include "Shop.h"
+
 class GameManager{
 public:
-void runSession();
+    void runSession();
 private:
-HandGenerator handGenerator;
-HandPlayer handPlayer;
-ScoringRule scoringRule;
-BlindRule blindRule;
-RewardRule rewardRule;
+    HandGenerator handGenerator;
+    HandPlayer handPlayer;
+    ScoringRule scoringRule;
+    BlindRule blindRule;
+    RewardRule rewardRule;
+    Shop shop;
 };

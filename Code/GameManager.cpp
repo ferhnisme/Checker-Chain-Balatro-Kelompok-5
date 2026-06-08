@@ -1,24 +1,32 @@
 #include <iostream>
-#include "../Code/GameManager.h"
+#include "GameManager.h"
+
 void GameManager::runSession(){
     std::cout << "=== Run Started ===\n";
 
-    char choice;
-    std::cout << "Skip blind and take fixed money 20? (y/n): ";
-    std::cin >> choice;
+    handGenerator.resetDeck();
 
-    bool skipBlind = (choice == 'y' || choice == 'Y');
+    const int startingCoins = 10;
+    ShopOptions shopOptions = shop.openShop(startingCoins);
+
     int reward = 0;
-
-    if (skipBlind) {
-        std::cout << "Blind skipped at the start. No score will be calculated.\n";
+    if (shopOptions.skipBlind) {
+        std::cout << "Skip Blind purchased. No scoring will be processed.\n";
         reward = 20;
     } else {
         Hand hand = handGenerator.generateHand();
-        handPlayer.playHand();
-        int score = scoringRule.scoreHand(hand);
-        bool win = blindRule.checkBlind(score);
-        reward = rewardRule.earnMoney(win, score, false);
+        if (hand.cardValues.empty()) {
+            std::cout << "Cannot generate a full hand; deck is depleted.\n";
+        } else {
+            std::cout << "Generated hand: ";
+            hand.display();
+            handPlayer.playHand(hand);
+            std::cout << "Hand after play: ";
+            hand.display();
+            int score = scoringRule.scoreHand(hand, shopOptions.jokerType);
+            bool win = blindRule.checkBlind(score);
+            reward = rewardRule.earnMoney(win, score, false);
+        }
     }
 
     std::cout << "Money gained: " << reward << "\n";

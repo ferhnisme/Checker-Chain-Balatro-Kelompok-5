@@ -4,14 +4,14 @@
 bool isFlushFive(const Hand& hand){
     if (hand.cardValues.size() < 5) return false;
     
-    // Flush Five: semua kartu sama suit DAN semua nilai berbeda
+    // Flush Five: semua kartu sama suit DAN semua nilai sama
     if (!hand.isAllSameSuit()) return false;
     
     std::vector<int> counts = hand.getValueCounts();
     for (int count : counts) {
-        if (count > 1) return false; // Tidak ada duplikat
+        if (count == 5) return true; // Semua 5 kartu punya nilai yang sama
     }
-    return true;
+    return false;
 }
 
 HandRank FlushFiveChecker::check(const Hand& hand){
